@@ -13,6 +13,10 @@
 - Командная панель `/menu /ping /status /screen /restart /logs /model /mcp` + админ-allowlist (для серверного tmux-деплоя)
 - PID-lock, watchdog, heartbeat, graceful restart
 
+> **Ставишь через ИИ-ассистента?** Дай своему Claude файл [`AGENTS.md`](AGENTS.md) — это
+> пошаговый ранбук установки (создание бота через @MasterBot, pairing, supervisor под
+> Linux/macOS/Windows, подключение плагина, проверка, удаление). Он разберётся сам.
+
 ## Быстрый старт (сервер, bun + systemd)
 
 1. **Создай бота в MAX** через **@MasterBot** (аналог BotFather): `/newbot` → имя → username → получишь токен.
