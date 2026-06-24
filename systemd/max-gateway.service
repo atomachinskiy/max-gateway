@@ -1,0 +1,25 @@
+[Unit]
+Description=max-gateway (reliable MAX/VK transport for Claude Code)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Runs the prebuilt bundle on node (no bun needed on the host). For dev you can
+# instead point bun at the source: ExecStart=%h/.bun/bin/bun %h/max-gateway/gateway/gateway.ts
+# Adjust the path if you cloned somewhere other than ~/max-gateway.
+ExecStart=/usr/bin/node %h/max-gateway/gateway/dist/gateway.js
+Restart=always
+RestartSec=2
+MemoryMax=400M
+# Token + owner are read from gateway.env (written by `bun gateway/gateway.ts pair`),
+# or the token from ~/.claude/secrets/max-bot-token. No personal ids live in this file.
+Environment=MAX_STATE_DIR=%h/.claude/channels/max-claude5
+# Optional: a managed tmux Claude session enables /restart /screen /model from MAX.
+Environment=CLAUDE5_TMUX=claude5
+Environment=SYS_RESTART_CMD=%h/max-gateway/bin/restart-claude5.sh
+# PATH so the daemon can shell out to tmux/pgrep/ps/journalctl/bash for /sys commands.
+Environment=PATH=%h/.bun/bin:/usr/local/bin:/usr/bin:/bin
+
+[Install]
+WantedBy=default.target

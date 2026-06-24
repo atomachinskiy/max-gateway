@@ -1,0 +1,12 @@
+{
+  "name": "max-local",
+  "owner": { "name": "atomachinskiy" },
+  "plugins": [
+    {
+      "name": "max",
+      "source": ".",
+      "description": "MAX (мессенджер от VK) channel bridge over the supervised max-gateway daemon",
+      "version": "0.1.0"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "max",
+  "description": "MAX channel for Claude Code — thin bridge over the supervised max-gateway daemon (reliable transport).",
+  "version": "0.1.0",
+  "keywords": ["max", "vk", "messaging", "channel", "mcp"]
+}
